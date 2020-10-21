@@ -7,7 +7,7 @@
     </div>
 
     <div class="inner">
-      <icons-add-second v-for="icon in iconsSecond" :key="icon.src" :icon="icon"></icons-add-second>
+      <icons-add-second v-for="icon in icons" :key="icon.src" :icon="icon"></icons-add-second>
     </div>
 
     <div class="inner">
@@ -42,29 +42,15 @@ export default {
       icons: [
         {
           url: "#",
-          src: "./assets/facebook.svg"
+          src: "assets/facebook.svg"
         },
         {
           url: "#",
-          src: "./assets/instagram.svg"
+          src: "assets/instagram.svg"
         },
         {
           url: "#",
-          src: "./assets/twitter.svg"
-        }
-      ],
-      iconsSecond: [
-        {
-          url: "#",
-          src: "./assets/facebook.svg"
-        },
-        {
-          url: "#",
-          src: "./assets/instagram.svg"
-        },
-        {
-          url: "#",
-          src: "./assets/twitter.svg"
+          src: "assets/twitter.svg"
         }
       ],
       iconsThird: [

@@ -1,3 +1,5 @@
+//using vue-svg-sprite
+
 <template>
   <div class="inner">
     <div class="icon-item" v-for="icon in icons" :key="icon.name">

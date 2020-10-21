@@ -1,3 +1,5 @@
+//using vue-svg-loader
+
 <template>
   <div>
     <Facebook class="icon"/>
