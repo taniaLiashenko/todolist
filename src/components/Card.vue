@@ -2,7 +2,7 @@
   <div>
     <md-card>
       <md-card-header>
-        <h2 class="md-title">{{ title }}</h2>
+        <h2 class="md-title" :title="title">{{ title }}</h2>
       </md-card-header>
       <slot></slot>
     </md-card>

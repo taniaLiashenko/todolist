@@ -20,13 +20,13 @@
 
     <tool-bar></tool-bar>
 
-    <card :title="title">
+    <card title="Tasks">
       <list-point v-for="item in listPoints" :key="item.value" :item="item">
         <ButtonDelete/>
       </list-point>
     </card>
 
-    <card :title="titleSecond">
+    <card title="New Task">
       <TextInput/>
     </card>
   </div>
@@ -99,9 +99,7 @@ export default {
           value: "dog",
           text: "Walk the dog"
         }
-      ],
-      title: "Tasks",
-      titleSecond: "New Task"
+      ]
     }
   }
 }
