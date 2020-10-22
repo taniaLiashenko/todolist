@@ -1,7 +1,7 @@
 <template>
   <div class="list-point">
     <md-checkbox v-model="string" :value="item.value">{{ item.text }}</md-checkbox>
-    <slot/>
+    <slot></slot>
   </div>
 </template>
 

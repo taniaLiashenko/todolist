@@ -4,7 +4,7 @@
       <md-card-header>
         <h2 class="md-title">{{ title }}</h2>
       </md-card-header>
-      <slot/>
+      <slot></slot>
     </md-card>
   </div>
 </template>

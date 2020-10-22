@@ -8,8 +8,8 @@
   </ul>
 
   <div v-else>
-    <a href="url">
-      <img src="src" alt="Icon">
+    <a :href="url">
+      <img :src="src" alt="Icon">
     </a>
   </div>
 </template>

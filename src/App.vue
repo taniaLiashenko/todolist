@@ -3,7 +3,7 @@
     <icon-base-added></icon-base-added>
 
     <div class="inner">
-      <icons-add :isList="isList" :icons="icons"></icons-add>
+      <icons-add :isList="isList" :icons="icons" url="#" src="assets/facebook.svg"></icons-add>
     </div>
 
     <div class="inner">
