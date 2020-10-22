@@ -1,8 +1,8 @@
 <template>
   <div class="inner">
-    <icon-base iconName="envelope"><icon-envelope/></icon-base>
-    <icon-base iconName="moon"><icon-moon/></icon-base>
-    <icon-base iconName="write"><icon-write/></icon-base>
+    <icon-base icon-name="envelope"><IconEnvelope/></icon-base>
+    <icon-base icon-name="moon"><IconMoon/></icon-base>
+    <icon-base icon-name="write"><IconWrite/></icon-base>
   </div>
 </template>
 

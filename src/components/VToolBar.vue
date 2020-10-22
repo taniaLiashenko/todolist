@@ -1,14 +1,20 @@
 <template>
   <div>
     <md-toolbar class="md-primary">
-      <h1 class="md-title">To-Do List</h1>
+      <h1 class="md-title" :title="title">{{ title }}</h1>
     </md-toolbar>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ToolBar'
+  name: 'VToolBar',
+  props: {
+    title: {
+      type: String,
+      default: "Title"
+    }
+  }
 }
 </script>
 

@@ -3,7 +3,7 @@
     <icon-base-added></icon-base-added>
 
     <div class="inner">
-      <icons-add :isList="isList" :icons="icons" url="#" src="assets/facebook.svg"></icons-add>
+      <icons-add :is-list="isList" :icons="icons" url="#" src="assets/facebook.svg"></icons-add>
     </div>
 
     <div class="inner">
@@ -18,17 +18,17 @@
       <icons-add-fourth></icons-add-fourth>
     </div>
 
-    <tool-bar></tool-bar>
+    <VToolBar title="To-Do List"/>
 
-    <card title="Tasks">
+    <v-card-item title="Tasks">
       <list-point v-for="item in listPoints" :key="item.value" :item="item">
         <ButtonDelete/>
       </list-point>
-    </card>
+    </v-card-item>
 
-    <card title="New Task">
-      <TextInput/>
-    </card>
+    <v-card-item title="New Task">
+      <text-input></text-input>
+    </v-card-item>
   </div>
 </template>
 
@@ -39,10 +39,10 @@ import IconsAddSecond from './components/IconsAddSecond.vue'
 import IconsAddThird from './components/IconsAddThird.vue'
 import IconsAddFourth from './components/IconsAddFourth.vue'
 import ButtonDelete from './components/ButtonDelete.vue'
-import Card from './components/Card.vue'
+import VCardItem from './components/VCardItem.vue'
 import ListPoint from './components/ListPoint.vue'
 import TextInput from './components/TextInput.vue'
-import ToolBar from './components/ToolBar.vue'
+import VToolBar from './components/VToolBar.vue'
 
 export default {
   name: 'App',
@@ -53,10 +53,10 @@ export default {
     IconsAddThird,
     IconsAddFourth,
     ButtonDelete,
-    Card,
+    VCardItem,
     ListPoint,
     TextInput,
-    ToolBar
+    VToolBar
   },
   data() {
     return {
