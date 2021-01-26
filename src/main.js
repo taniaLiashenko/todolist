@@ -10,6 +10,8 @@ Vue.config.productionTip = false
 Vue.use(SvgSprite)
 Vue.use(VueMaterial)
 
-new Vue({
+var vm = new Vue({
   render: h => h(App),
 }).$mount('#app')
+
+vm.use

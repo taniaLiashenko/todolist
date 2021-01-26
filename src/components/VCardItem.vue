@@ -9,16 +9,6 @@
   </div>
 </template>
 
-<style lang="sass" scoped>
-  .md-card
-    display: flex
-    flex-direction: column
-    justify-content: center
-    width: 100%
-    margin-bottom: 20px
-    padding: 15px 25px
-</style>
-
 <script>
 export default {
   name: 'VCardItem',
@@ -29,3 +19,16 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+  .md-card
+    display: flex
+    flex-direction: column
+    justify-content: center
+    width: 100%
+    margin-bottom: 20px
+    padding: 15px 25px
+
+  .md-card-header
+    padding: 10px 0
+</style>

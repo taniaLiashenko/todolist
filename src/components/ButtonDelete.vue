@@ -1,8 +1,8 @@
 <template>
   <div>
-    <md-button class="md-icon-button">
+    <button class="button-delete" type="button" @click="removePoint">
       <Close/>
-    </md-button>
+    </button>
   </div>
 </template>
 
@@ -13,12 +13,25 @@ export default {
   name: 'ButtonDelete',
   components: {
     Close
+  },
+  methods: {
+    removePoint() {
+      this.$emit('remove-point')
+    }
   }
 }
 </script>
 
 <style lang="sass" scoped>
-  .md-icon-button
+  .button-delete
+    background: transparent
+    border: none
+    transition: transform 0.25s ease-out
+
+    &:hover
+      transform: scale(1.1)
+      cursor: pointer
+
     svg
       width: 20px
       height: 20px

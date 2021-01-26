@@ -1,130 +1,99 @@
 <template>
-  <div class="container">
-    <icon-base-added></icon-base-added>
-
-    <div class="inner">
-      <icons-add :is-list="isList" :icons="icons" url="#" src="assets/facebook.svg"></icons-add>
-    </div>
-
-    <div class="inner">
-      <icons-add-second v-for="icon in icons" :key="icon.src" :icon="icon"></icons-add-second>
-    </div>
-
-    <div class="inner">
-      <icons-add-third :icons="iconsThird"></icons-add-third>
-    </div>
-
-    <div class="inner">
-      <icons-add-fourth></icons-add-fourth>
-    </div>
-
+  <div class="container" id="app">
     <VToolBar title="To-Do List"/>
 
     <v-card-item title="Tasks">
-      <list-point v-for="item in listPoints" :key="item.value" :item="item">
-        <ButtonDelete/>
-      </list-point>
+      <ul>
+        <v-list-point v-for="(item, index) in listPoints" :key="index" :item="item">
+          <ButtonDelete @remove-point="removeToDoPoint(item)"/>
+        </v-list-point>
+      </ul>
     </v-card-item>
 
     <v-card-item title="New Task">
-      <text-input></text-input>
+      <v-text-input v-model="newText">
+        <ButtonAdd @add-item="addNewTodo"/>
+      </v-text-input>
     </v-card-item>
+
+    <IconsListFirst/>
   </div>
 </template>
 
 <script>
-import IconBaseAdded from './components/IconBaseAdded.vue'
-import IconsAdd from './components/IconsAdd.vue'
-import IconsAddSecond from './components/IconsAddSecond.vue'
-import IconsAddThird from './components/IconsAddThird.vue'
-import IconsAddFourth from './components/IconsAddFourth.vue'
+import IconsListFirst from './components/IconsListFirst.vue'
 import ButtonDelete from './components/ButtonDelete.vue'
+import ButtonAdd from './components/ButtonAdd.vue'
 import VCardItem from './components/VCardItem.vue'
-import ListPoint from './components/ListPoint.vue'
-import TextInput from './components/TextInput.vue'
+import VListPoint from './components/VListPoint.vue'
+import VTextInput from './components/VTextInput.vue'
 import VToolBar from './components/VToolBar.vue'
 
 export default {
   name: 'App',
   components: {
-    IconBaseAdded,
-    IconsAdd,
-    IconsAddSecond,
-    IconsAddThird,
-    IconsAddFourth,
+    IconsListFirst,
     ButtonDelete,
     VCardItem,
-    ListPoint,
-    TextInput,
-    VToolBar
+    VListPoint,
+    VTextInput,
+    VToolBar,
+    ButtonAdd
   },
   data() {
     return {
-      isList: true,
-      icons: [
-        {
-          url: "#",
-          src: "assets/facebook.svg"
-        },
-        {
-          url: "#",
-          src: "assets/instagram.svg"
-        },
-        {
-          url: "#",
-          src: "assets/twitter.svg"
-        }
-      ],
-      iconsThird: [
-        {
-          name: "facebook"
-        },
-        {
-          name: "instagram"
-        },
-        {
-          name: "twitter"
-        }
-      ],
       listPoints: [
         {
-          value: "car",
-          text: "Wash the car"
+          text: "Приготувати борщ"
         },
         {
-          value: "dishes",
-          text: "Do the dishes"
+          text: "Погодувати кота"
         },
         {
-          value: "dog",
-          text: "Walk the dog"
+          text: "Сходити на блюз"
         }
-      ]
+      ],
+      deletedTodo: null,
+      newText: ''
+    }
+  },
+  methods: {
+    removeToDoPoint(item) {
+      this.deletedTodo = item;
+      this.listPoints = this.listPoints.filter(item => item !== this.deletedTodo);
+    },
+    addNewTodo() {
+      if(this.newText.length !== 0) {
+        this.listPoints.push({text: this.newText});
+        this.newText = '';
+      }
     }
   }
 }
 </script>
 
 <style lang="sass">
-#app
-  font-family: Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-  text-align: center
-  color: #2c3e50
-  margin-top: 60px
+  #app
+    font-family: Avenir, Helvetica, Arial, sans-serif
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+    text-align: center
+    color: #2c3e50
+    margin-top: 60px
 
-.container
-  display: flex
-  flex-direction: column
-  width: 50%
-  margin: 0 auto
+  .container
+    display: flex
+    flex-direction: column
+    width: 50%
+    margin: 0 auto
+    padding: 50px 0
 
-.inner
-  display: flex
-  padding: 10px 0
+  .inner
+    display: flex
+    justify-content: center
+    padding: 10px 0
 
-.icon
-  width: 50px
-  height: 50px
+  ul
+    margin: 0
+    padding: 0
 </style>
